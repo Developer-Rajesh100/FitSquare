@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'classes',
     'membership',
     'staff_panel',
+    'contact',
+    'review',
 ]
 
 MIDDLEWARE = [

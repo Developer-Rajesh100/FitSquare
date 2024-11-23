@@ -13,4 +13,4 @@ class Member(models.Model):
     blood_group = models.CharField(max_length=20)
 
     def __str__(self):
-        return f"username: {self.user.username}"
+        return f"{self.user.username}"
