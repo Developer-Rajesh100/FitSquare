@@ -10,3 +10,10 @@ STATUS_TYPE = [
     ('completed', 'Completed'),
     ('canceled', 'Canceled')
 ]
+
+RECORD_STATUS_TYPE = [
+    ('booked', 'Booked'),
+    ('unbooked', 'Unbooked'),
+    ('attended', 'Attended'),
+    ('canceled', 'Canceled')
+]

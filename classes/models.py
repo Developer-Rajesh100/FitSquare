@@ -1,5 +1,6 @@
 from django.db import models
-from classes.constants import DIFFICULTY_TYPE, STATUS_TYPE
+from authentication.models import Member
+from classes.constants import DIFFICULTY_TYPE, STATUS_TYPE, RECORD_STATUS_TYPE
 
 
 ########## Classes Model ##########
@@ -18,3 +19,14 @@ class Classes(models.Model):
 
     def __str__(self):
         return self.title
+
+
+########## ClassesRecord Model ##########
+class ClassesRecord(models.Model):
+    member = models.ForeignKey(Member, on_delete=models.CASCADE)
+    classes = models.ForeignKey(Classes, on_delete=models.CASCADE)
+    status = models.CharField(max_length=20, choices=RECORD_STATUS_TYPE, default='unbooked')
+    booked_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.member.user.username}"
