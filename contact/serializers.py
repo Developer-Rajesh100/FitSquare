@@ -5,4 +5,4 @@ from .models import Contact
 class ContactSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contact
-        exclude = ['submitted_on',]
+        fields = '__all__'
