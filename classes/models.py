@@ -2,7 +2,7 @@ from django.db import models
 from classes.constants import DIFFICULTY_TYPE, STATUS_TYPE
 
 
-# Create your models here.
+########## Classes Model ##########
 class Classes(models.Model):
     image = models.ImageField(upload_to='classes/image')
     title = models.CharField(max_length=500)

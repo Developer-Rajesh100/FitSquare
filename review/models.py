@@ -3,7 +3,7 @@ from authentication.models import Member
 from classes.models import Classes
 
 
-# Create your models here.
+########## Review Model ##########
 class Review(models.Model):
     member = models.ForeignKey(Member, on_delete=models.CASCADE)
     classes = models.ForeignKey(Classes, on_delete=models.CASCADE,)

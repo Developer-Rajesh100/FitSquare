@@ -1,7 +1,7 @@
 from django.db import models
 from authentication.models import Member
 
-# Create your models here.
+########## Contact Model ##########
 class Contact(models.Model):
     member = models.ForeignKey(Member, on_delete=models.CASCADE)
     subject = models.CharField(max_length=500)
