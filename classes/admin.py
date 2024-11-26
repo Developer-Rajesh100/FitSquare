@@ -3,7 +3,7 @@ from .models import Classes, ClassesRecord
 
 ########## Classes Admin ##########
 class ClassesAdmin(admin.ModelAdmin):
-    list_display = ['image', 'online_meeting_link', 'title', 'description', 'instructor', 'duration', 'hold_on', 'difficulty_level', 'status', 'category']
+    list_display = ['id','image', 'online_meeting_link', 'title', 'description', 'instructor', 'duration', 'hold_on', 'difficulty_level', 'status', 'category']
 
 admin.site.register(Classes, ClassesAdmin)
 
