@@ -21,4 +21,4 @@ class RegistrationAPIView(APIView):
         if serializer.is_valid():
             serializer.save()
             return Response({'message': 'User registration successful!'})
-        return Response('Data is not Valid!')
+        return Response(serializer.errors)
