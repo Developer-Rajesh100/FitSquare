@@ -23,7 +23,6 @@ class RegistrationSerializer(serializers.ModelSerializer):
         password = self.validated_data['password']
         confirm_password = self.validated_data['confirm_password']
 
-
         if password != confirm_password:
             raise serializers.ValidationError({'error': "Passwords don't match"})
         if User.objects.filter(email=email).exists():
@@ -36,3 +35,8 @@ class RegistrationSerializer(serializers.ModelSerializer):
 
         account.save()
         return account
+
+
+class LoginSerializer(serializers.Serializer):
+    username = serializers.CharField(required=True)
+    password = serializers.CharField(required=True)
