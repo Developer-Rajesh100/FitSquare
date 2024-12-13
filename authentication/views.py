@@ -86,12 +86,12 @@ class LoginAPIView(APIView):
 
 class LogoutAPIView(APIView):
     def get(self, request):
-        if request.user.is_anonymous:
-            return Response({"error": "User is not authenticated!"}, status=status.HTTP_400_BAD_REQUEST)
-        else:
-            try:
-                request.user.auth_token.delete()
-            except User.auth_token.RelatedObjectDoesNotExist:
-                return Response({"error": "User has no auth_token!"}, status=status.HTTP_400_BAD_REQUEST)
+        try:
+            if not request.user.is_authenticated:
+                return Response({"error": "User is not authenticated!"}, status=status.HTTP_400_BAD_REQUEST)
+
+            request.user.auth_token.delete()
             logout(request)
             return Response({"message": "User logout successfully!"})
+        except Exception as e:
+            return Response({"error": "User has no auth_token!"}, status=status.HTTP_400_BAD_REQUEST)
